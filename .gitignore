@@ -1,0 +1,5 @@
+node_modules/
+vendor/
+.vscode/
+web/uploads/
+composer.phar

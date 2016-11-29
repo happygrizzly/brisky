@@ -1,0 +1,40 @@
+button, .button {
+   -webkit-appearance: button;
+    display: inline-block;
+    cursor: pointer;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    font-family: open_sanscondensed_light, sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    padding: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+   -webkit-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+}
+
+button:hover, .button:hover {
+    color: #222;
+    border: 1px solid #555;
+}
+
+button.primary, .button.primary {
+    color: #138bdb;
+    border: 1px solid #289bed;
+}
+
+button.primary:hover, .button.primary:hover {
+    /*
+    background: linear-gradient(to bottom,#289bed 5%,#1a9af4 100%);
+    background-color: #289bed;
+    */
+}
+
+button.expand, .button.expand { width: 100%; }
+
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}

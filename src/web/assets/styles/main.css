@@ -1,0 +1,77 @@
+.ng-cloak {
+    display: none;
+    opacity: 0;
+}
+
+#body {
+  margin-left: 22rem;
+}
+
+.page .page-heading {
+  background-color: #fff;
+  color: #555;
+  padding: 1rem 1.25rem;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  line-height: 1.6125rem;
+  font-family: 'open_sanscondensed_light', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-width: 0;
+  border-bottom: 1px solid #197fe5;
+}
+
+.page .page-subheading {
+  padding: .85rem 1rem;
+  background-color: #f3f3f3;
+  /*background-color: #3891ff;*/
+  border-bottom: 1px solid #197fe5;
+  font-size: .8rem;
+  line-height: 1rem;
+}
+
+.page .page-heading .icon:before {
+  margin-right: 1rem;
+  color: #1b56a0;
+}
+
+.page .page-body {
+  padding: 1rem;
+}
+
+.page-heading .page-heading-text {
+  margin-right: .25rem;
+}
+
+.page-body-section-header {
+  font-family: 'open_sanscondensed_light', sans-serif;
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin: 0 0 1rem 0;
+  padding: .5rem .75rem;
+  border: 1px solid #289BED;
+  background-color: #fff;
+  color: #000;
+}
+
+.page-body-section-header .icon {
+  color: #289BED;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: .25rem .5rem;
+  border: 1px solid #ccc;
+}
+
+table th {
+  font-weight: bold;
+  text-align: left;
+}
+
+table td a {
+  text-decoration: none;
+}

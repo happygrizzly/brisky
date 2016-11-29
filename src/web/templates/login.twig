@@ -1,0 +1,45 @@
+{% set baseurl = global.request.basepath %}
+
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <title>Brisky QMS | Login</title>
+        <link href="{{ baseurl }}/assets/styles/login.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div class="login-form-wrapper">
+            <div class="login-form">
+                <form action="{{ path('login_check') }}" method="post">
+
+                    <div class="form-section header">
+                        <div class="logo clearfix">
+                            <img class="logo-image" src="{{ baseurl }}/assets/images/logo/logo.png" />
+                            <div class="logo-text">Brisky</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section body">
+
+                        <input type="text" name="_username" value="{{ last_username }}" class="input username {{ error ? 'error' }}" placeholder="Имя пользователя" autocomplete="off" />
+                        <input type="password" name="_password" value="" class="input password {{ error ? 'error' }}" placeholder="Пароль" />
+
+                        {% if error %}
+                            <div class="error-message">
+                                {# refactor: use silex translations or any better approach to replace the basic message #}
+                                {{ error | replace({"Bad credentials." : "Логин / пароль указан неверно"})  }}
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+                    <div class="form-section footer">
+                        <button class="submit expand">вход</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

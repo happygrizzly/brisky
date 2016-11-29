@@ -1,0 +1,92 @@
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: "qms";
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1rem;
+  /*margin-right: .2rem;
+    text-align: center;
+    /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1rem;
+  margin-right: .75rem;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-lock-1:before { content: '\e800'; } /* 'о Ђ' */
+.icon-bell:before { content: '\e801'; } /* 'о Ѓ' */
+.icon-doc-1:before { content: '\e802'; } /* 'о ‚' */
+.icon-left-dir:before { content: '\e803'; } /* 'о ѓ' */
+.icon-cog:before { content: '\e804'; } /* 'о „' */
+.icon-cog-alt:before { content: '\e805'; } /* 'о …' */
+.icon-calendar:before { content: '\e806'; } /* 'о †' */
+.icon-right-dir:before { content: '\e807'; } /* 'о ‡' */
+.icon-doc-new:before { content: '\e808'; } /* 'о €' */
+.icon-pin:before { content: '\e809'; } /* 'о ‰' */
+.icon-flow-tree:before { content: '\e80a'; } /* 'о Љ' */
+.icon-upload:before { content: '\e80b'; } /* 'о ‹' */
+.icon-logout-1:before { content: '\e80c'; } /* 'о Њ' */
+.icon-login-1:before { content: '\e80d'; } /* 'о Ќ' */
+.icon-tag:before { content: '\e80e'; } /* 'о Ћ' */
+.icon-tag-empty:before { content: '\e80f'; } /* 'о Џ' */
+.icon-newspaper:before { content: '\e810'; } /* 'о ђ' */
+.icon-th-large:before { content: '\e812'; } /* 'о ’' */
+.icon-plus:before { content: '\e813'; } /* 'о “' */
+.icon-th:before { content: '\e814'; } /* 'о ”' */
+.icon-cancel-circle:before { content: '\e815'; } /* 'о •' */
+.icon-th-list:before { content: '\e816'; } /* 'о –' */
+.icon-minus:before { content: '\e817'; } /* 'о —' */
+.icon-wrench:before { content: '\e818'; } /* 'о ' */
+.icon-doc-text-inv:before { content: '\e819'; } /* 'о ™' */
+.icon-doc-text-1:before { content: '\e81a'; } /* 'о љ' */
+.icon-down-dir:before { content: '\e81b'; } /* 'о ›' */
+.icon-up-dir:before { content: '\e81c'; } /* 'о њ' */
+.icon-download:before { content: '\e81d'; } /* 'о ќ' */
+.icon-info:before { content: '\e81e'; } /* 'о ћ' */
+.icon-home:before { content: '\e82e'; } /* 'о ®' */
+.icon-trash-empty:before { content: '\e832'; } /* 'о І' */
+.icon-chart-bar:before { content: '\e834'; } /* 'о ґ' */
+.icon-cancel-1:before { content: '\e83a'; } /* 'о є' */
+.icon-user-male:before { content: '\f062'; } /* 'пЃў' */
+.icon-stethoscope:before { content: '\f0f1'; } /* 'пѓ±' */
+.icon-bell-alt:before { content: '\f0f3'; } /* 'пѓі' */
+.icon-building:before { content: '\f0f7'; } /* 'пѓ·' */
+.icon-angle-double-left:before { content: '\f100'; } /* 'п„Ђ' */
+.icon-angle-double-right:before { content: '\f101'; } /* 'п„Ѓ' */
+.icon-angle-double-up:before { content: '\f102'; } /* 'п„‚' */
+.icon-angle-double-down:before { content: '\f103'; } /* 'п„ѓ' */
+.icon-angle-left:before { content: '\f104'; } /* 'п„„' */
+.icon-angle-right:before { content: '\f105'; } /* 'п„…' */
+.icon-angle-up:before { content: '\f106'; } /* 'п„†' */
+.icon-angle-down:before { content: '\f107'; } /* 'п„‡' */
+.icon-folder-empty:before { content: '\f114'; } /* 'п„”' */
+.icon-folder-open-empty:before { content: '\f115'; } /* 'п„•' */
+.icon-database-1:before { content: '\f1c0'; } /* 'п‡Ђ' */
+.icon-file-pdf:before { content: '\f1c1'; } /* 'п‡Ѓ' */
+.icon-file-word:before { content: '\f1c2'; } /* 'п‡‚' */
+.icon-file-excel:before { content: '\f1c3'; } /* 'п‡ѓ' */
+.icon-file-powerpoint:before { content: '\f1c4'; } /* 'п‡„' */
+.icon-file-image:before { content: '\f1c5'; } /* 'п‡…' */
+.icon-file-archive:before { content: '\f1c6'; } /* 'п‡†' */
+.icon-file-audio:before { content: '\f1c7'; } /* 'п‡‡' */
+.icon-file-video:before { content: '\f1c8'; } /* 'п‡€' */
+
+.bg-icon {
+  font-family: "qms";
+  float: left;
+  margin-right: -1rem;
+}
+.bg-icon:before {
+  content: attr(data-icon);
+}

@@ -1,0 +1,292 @@
+
+.pagination {
+  display: block;
+  zoom: 1;
+}
+
+.pagination:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.pagination li {
+  float: left;
+  margin-right: .25rem;
+}
+
+.pagination li.disabled {
+  display: none;
+}
+
+.pagination li.direction a {
+  padding: .25rem .25rem;
+  color: #1b56a0;
+}
+
+.pagination li.direction a .icon:before {
+  margin-right: 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.pagination li a {
+  padding: .25rem .5rem;
+  font-size: .85rem;
+  display: block;
+  font-family: 'Ubuntu', sans-serif;
+  text-decoration: none;
+  text-align: center;
+  color: #555;
+}
+
+.pagination li.active a {
+  background-color: #197fe5;
+  color: #fff;
+}
+
+.notice {
+  padding: .85rem;
+  /*border: 1px solid #3188E0;*/
+  background-color: #FFF6E8;
+  border-left: .125rem solid #FCEBD1;
+  font-size: .75rem;
+}
+
+.notice.small {
+  padding: .5rem; 
+}
+
+.notice .icon:before {
+  text-align: center;
+  margin-right: .5rem;
+}
+
+.categories-breadcrumbs {
+  font-family: 'Century Gothic', sans-serif;
+}
+
+.categories-breadcrumbs .category {
+  color: #1b56a0;
+}
+
+.categories-breadcrumbs .category:first-letter {
+  text-transform: capitalize;
+}
+
+.categories-breadcrumbs .category:before {
+  content: '\f105';
+  margin: 0 .25rem;
+  font-family: 'qms';
+  font-weight: bold;
+}
+
+.categories-breadcrumbs .category:first-child:before {
+  display: none;
+}
+
+.categories-breadcrumbs .category:last-child {
+  font-weight: bold;
+}
+
+.form {
+  padding: .5rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.form.ng-valid {
+  border-color: #197fe5;
+}
+
+.form hr {
+  margin-bottom: 0;
+  border-color: #ccc;
+}
+
+.form .textarea {
+  width: 100%; 
+  display: block;
+  font-family: open_sanscondensed_light, 'Lucida Sans', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: rgba(0, 0, 0, 0.85);
+  padding: .5rem .75rem;
+  border: 1px solid #aaa;
+  margin-top: -1px;
+  resize: vertical;
+}
+
+.form .input-label {
+  font-family: open_sanscondensed_light, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  display: block;
+  padding: .5rem .75rem;
+  border: 1px solid #c3b8e0;
+  border-bottom: none;
+  color: #625484;
+  cursor: pointer;
+}
+
+.form .input-label .icon:before {
+  margin-right: .65rem;
+}
+
+.form .input-wrapper {
+  margin-bottom: .5rem;
+}
+
+.form .input {
+    width: 100%;
+   -webkit-appearance: none;
+    border-radius: 0;
+    background-color: #FFFFFF;
+    font-family: open_sanscondensed_light, 'Lucida Sans', sans-serif;
+    letter-spacing: 1px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #aaa;
+    color: rgba(0, 0, 0, 0.85);
+    display: block;
+    font-size: 1rem;
+    padding: .5rem .75rem;
+    transition: all 0.15s linear;
+}
+
+
+/* note: you can set margin=0 to all .input elements by default instead */
+.form .input-wrapper > .input,
+.form .input-wrapper > .textarea {
+  margin-bottom: 0;
+}
+
+.input-label .status {
+  font-weight: bold;
+  color: #222;
+}
+
+datepicker > input[type="text"]:first-child {
+  margin: 0 !important;
+}
+
+tags-input .host {
+  margin: 0 0 !important;
+}
+
+tags-input .tags {
+  box-shadow: none !important;
+  padding: .35rem !important;
+}
+
+tags-input .tags .input {
+  font: 1rem open_sanscondensed_light, sans-serif !important;
+}
+
+tags-input .tags .tag-item {
+  background: transparent !important;
+  color: #333 !important;
+  border-radius: 0 !important;
+  border-color: #555 !important;
+}
+
+/*
+.document {
+  background: #fff;
+  border: 1px solid #4a90d6;
+}
+
+.document:first-child {
+  border-bottom-width: 0;
+}
+
+.document:last-child {
+  border-bottom-width: 1px;
+}
+
+.document .document-field {
+  height: 100%;
+  padding: .5rem .75rem;
+}
+
+.document .document-field:last-child {
+  border-right: none;
+}
+
+.document .icon:before {
+  margin-right: 0;
+  text-align: center;
+}
+
+.document .document-download-link {
+  border-right: 1px solid #4a90d6;
+}
+
+.document .document-download-link .icon {
+  color: #3f7fbf;
+}
+
+.document .document-download-link .icon:hover {
+  color: #356aa0;
+}
+
+.document .document-delete-link .icon {
+  color: #92c7fc;
+}
+
+.document .document-delete-link .icon:hover {
+  color: #2e91f4;
+}
+
+.document .document-title {
+  font-family: open_sanscondensed_light, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #333;
+}
+*/
+
+#documents-list {
+  margin-bottom: 1rem;
+}
+
+#documents-list .document-aux-props {
+  border-top: 1px solid #eee;
+  margin-top: .25rem;
+  padding: .25rem 0 0 0;
+}
+
+#documents-list tbody tr:hover .document-aux-props {
+  border-top-color: #aaa;
+}
+
+#documents-list tbody tr:hover .document-aux-props .action .icon:before {
+  color: #197fe5;
+}
+
+#documents-list .document-aux-props .ts .icon:before,
+#documents-list .document-aux-props .tag .icon:before {
+  margin-right: .5rem;
+}
+
+#documents-list .actions .action {
+  padding: .125rem;
+}
+
+#documents-list .actions .divider {
+  color: #ddd;
+}
+
+#documents-list .actions .action .icon:before {
+  color: #555;
+  text-align: center;
+  margin-right: 0;
+}
+
+#documents-list .tags .tag {
+  margin-right: .5rem;
+  color: #000;
+}

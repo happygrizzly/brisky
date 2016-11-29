@@ -1,0 +1,119 @@
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 22rem;
+  overflow: auto;
+  border-right: 1px solid #197fe5;
+}
+
+.logo {
+  padding: 1rem;
+  background: #fff;
+}
+
+.logo-text {
+  font-size: 1rem;
+  font-family: 'open_sanscondensed_light', sans-serif;
+  letter-spacing: 2px;
+  padding-left: 2.35rem;
+  background: transparent url('../images/logo/logo.small.png') no-repeat left center;
+}
+
+.logo-text a {
+  text-decoration: none;
+  color: #222;
+}
+
+.logo .account .username {
+  margin-right: .35rem;
+  font-size: 1rem;
+  font-family: open_sanscondensed_light, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #555;
+}
+
+.logo .account .username:before {
+  color: #007af4;
+}
+
+.logo .account .logout-link {
+  color: #ccc;
+}
+
+.logo .account .logout-link:hover {
+  color: #007af4;
+}
+
+.logo .account .logout-link .icon:before {
+  margin-right: 0;
+}
+
+/* common .nav rules */
+.nav .label {
+  font-family: open_sanscondensed_light, sans-serif;
+  font-size: 1.125rem;
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: block;
+  padding: .5rem 0;
+  color: #3956ad;
+  border-bottom: 1px solid #d6d0e5;
+} 
+
+.nav ul {
+  padding: 0 0 0 1rem;
+}
+
+.nav ul.depth-1 {
+  padding: 0 1rem;    
+}
+
+.nav ul.depth-2 .label {
+  /* use LESS to gradually decrement the font-size */
+  font-size: 1rem;
+}
+
+.nav ul.depth-3 .label {
+  border-bottom-color: #ddd;
+  color: #3d5cba;
+}
+
+.accordion input[type="checkbox"] {
+  position: absolute;
+	opacity: 0;
+}
+
+.accordion input[type="checkbox"] + label + ul {
+  display: none;
+}
+
+.accordion input[type="checkbox"]:checked + label + ul {
+  display: block;
+}
+
+.accordion input[type="checkbox"] + label:before {
+  font-family: 'qms';
+  margin-right: .5rem;
+  /* .icon-arrow-down */
+  content: '\f107';
+}
+
+.accordion input[type="checkbox"]:checked + label:before {
+  /* .icon-arrow-up */
+  content: '\f106';
+}
+
+.accordion .label {
+  cursor: pointer;
+}
+
+.accordion .accordion-item {
+  position: relative;
+}
+
+.label.active {
+  font-weight: bold;
+}

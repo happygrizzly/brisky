@@ -1,0 +1,9 @@
+title:
+  - NotNull: ~
+  - NotBlank: ~
+comment:
+  - Length: { min: 50 }
+date:
+  - Date: ~
+tags:
+  - Count: { min: 1, max: 5 }

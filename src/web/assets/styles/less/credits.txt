@@ -1,0 +1,2 @@
+All credits go for Kezz Bracey 
+article url: https://webdesign.tutsplus.com/tutorials/a-simple-mixin-alternative-to-standard-css-grids--webdesign-16958

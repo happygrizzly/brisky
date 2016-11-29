@@ -1,0 +1,91 @@
+*,
+*:before,
+*:after {
+ -moz-box-sizing: border-box;
+ -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  padding: 0; margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.5;
+  position: relative;
+  cursor: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+hr {
+  border-style: solid;
+  border-width: 1px 0 0 0;
+  margin: 0 0 1rem 0;
+  color: #ccc;
+}
+
+.clearfix {
+  display: block;
+  zoom: 1;
+}
+
+.clearfix:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.pull-left {
+  float: left !important;
+}
+
+.half-width {
+  width: 49.9999999%;
+}
+
+select, table { width: 100%; }
+
+table {
+  border: 1px solid #ccc;
+}
+
+table th, table td {
+  font-family: open_sanscondensed_light, sans-serif;
+  letter-spacing: 1px;
+}
+
+img {
+  max-width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, .08);
+    background-clip: padding-box;
+    border: 3px solid transparent;
+    border-right-width: 2px;
+    cursor: pointer;
+}

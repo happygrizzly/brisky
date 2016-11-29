@@ -1,0 +1,25 @@
+@media screen and (max-width: 1152px) {
+  
+  /* use LESS to automate .page offset / #sidebar width */
+
+  #sidebar {
+    width: 20rem;
+  }
+  
+  #body {
+    margin-left: 20rem;
+  }
+
+  .nav ul.depth-1 .label {
+    font-size: 1rem;
+  }
+
+  .nav ul.depth-2 .label {
+    font-size: .9rem;
+  }
+
+  .logo .account .username {
+    text-transform: capitalize;
+  }
+
+}
