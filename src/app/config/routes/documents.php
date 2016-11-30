@@ -11,10 +11,12 @@
 
     $documents = $app['controllers_factory'];
 
+    /*
     class DocumentsApiController {
         
     }
-
+    */
+    
     /*    
         $form->add('my_file', 'file', [
             'required' => true,
@@ -147,6 +149,7 @@
 
     $documents->post('/new', function(Request $request) use($app) {
 
+        /*
         if(!$request->files->has('file')) {
             return $app->json(array(['file' => ['File is not found']]), Response::HTTP_BAD_REQUEST);
         }
@@ -156,6 +159,7 @@
         if(count($errors) > 0) {
             return $app->json($errors, Response::HTTP_BAD_REQUEST);
         }
+        */
 
         $file = $request->files->get('file');
         $tags = $request->request->get('tags');

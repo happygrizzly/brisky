@@ -6,6 +6,7 @@
     
     $app['debug'] = getenv('DEBUG_MODE') !== false;
 
+    $app['DB_DRIVER'] = getenv('DB_DRIVER');
     $app['DB_HOST'] = getenv('DB_HOST');
     $app['DB_NAME'] = getenv('DB_NAME');
     $app['DB_USER'] = getenv('DB_USER');

@@ -20,7 +20,8 @@
                 ->add("comment", TextType::class, array("required" => true))
                 ->add("date", DateType::class, array("required" => true))
                 ->add("file", FileType::class, array("required" => true))
-                ->add("tags", CollectionType::class, $tags_options);
+                ->add("tags", CollectionType::class, $tags_options)
+                ->add("directory_id", TextType::class, array("required" => true));
                 
         }
 
