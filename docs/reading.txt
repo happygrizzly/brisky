@@ -1,0 +1,3 @@
+# https://github.com/l3pp4rd/DoctrineExtensions/blob/master/doc/annotations.md#em-setup
+# https://vaughnvernon.co/?p=879
+# http://stackoverflow.com/jobs/127876/junior-programmer-digiata-product-team-digiata?med=clc&ref=large-sidebar-blue-remote

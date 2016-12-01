@@ -12,7 +12,7 @@
     $app['DB_USER'] = getenv('DB_USER');
     $app['DB_PWD'] = getenv('DB_PWD');
     
-    $app['ROOT_DIR'] = __DIR__.'/../';
+    $app['ROOT_DIR'] = __DIR__.'/..';
     $app['UPLOADS_DIR'] = __DIR__.'/uploads';
 
     $app['DOCUMENTS_PER_PAGE'] = 5;
