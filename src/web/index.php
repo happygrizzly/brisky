@@ -4,7 +4,7 @@
 
     $app = new Silex\Application();
     
-    $app['debug'] = getenv('DEBUG_MODE') !== false;
+    $app['debug'] = getenv('ENV') === 'development';
 
     $app['DB_DRIVER'] = getenv('DB_DRIVER');
     $app['DB_HOST'] = getenv('DB_HOST');
