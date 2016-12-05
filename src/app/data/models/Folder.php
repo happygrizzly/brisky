@@ -19,6 +19,12 @@
         private $created;
 
         /**
+        * @Gedmo\Timestampable(on="update")
+        * @ORM\Column(type="datetime")
+        */
+        private $updated;
+
+        /**
         * @ORM\Column(name="id", type="integer")
         * @ORM\Id
         * @ORM\GeneratedValue
@@ -26,7 +32,7 @@
         private $id;
 
         /**
-        * @ORM\Column(name="title", type="string", length=100)
+        * @ORM\Column(name="title", type="string", length=150)
         */
         private $title;
 

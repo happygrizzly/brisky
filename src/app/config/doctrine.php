@@ -3,6 +3,8 @@
     use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
     use Silex\Provider\DoctrineServiceProvider;
     
+    // this one registers Doctrine's event manager
+
     $app->register(new DoctrineServiceProvider, array(
         'db.options' => array(
             // use as an alternative environment config
@@ -17,22 +19,6 @@
         ),
     ));
 
-    // to use different mapping type use
-
-    $app->register(new DoctrineOrmServiceProvider, array(
-        'orm.proxies_dir' => $app['ROOT_DIR'].'/app/data/entities/proxies',
-        'orm.em.options' => array(
-            'mappings' => array(
-                array(
-                    'type' => 'annotation',
-                    'namespace' => 'App\Data\Models',
-                    'path' => $app['ROOT_DIR'].'/app/data/models',
-                ),
-            ),
-        ),
-    ));
-
-    // Configure ORM
     // globally used cache driver, in production use APC or memcached
     $cache = new Doctrine\Common\Cache\ArrayCache();
 
@@ -58,9 +44,32 @@
     $treeListener->setAnnotationReader($cachedAnnotationReader);
     $app['event_manager']->addEventSubscriber($treeListener);
 
+    /*
+    // blameable
+    $blameableListener = new \Gedmo\Blameable\BlameableListener();
+    $blameableListener->setAnnotationReader($cachedAnnotationReader);
+    $blameableListener->setUserValue('MyUsername'); // determine from your environment
+    $evm->addEventSubscriber($blameableListener);
+    */
+
     // timestampable
     $timestampableListener = new Gedmo\Timestampable\TimestampableListener();
     $timestampableListener->setAnnotationReader($cachedAnnotationReader);
-    $evm->addEventSubscriber($timestampableListener);
+    $app['event_manager']->addEventSubscriber($timestampableListener);
+
+    // to use different mapping type use
+
+    $app->register(new DoctrineOrmServiceProvider, array(
+        'orm.proxies_dir' => $app['ROOT_DIR'].'/app/data/models/proxies',
+        'orm.em.options' => array(
+            'mappings' => array(
+                array(
+                    'type' => 'annotation',
+                    'namespace' => 'App\Data\Models',
+                    'path' => $app['ROOT_DIR'].'/app/data/models',
+                ),
+            ),
+        ),
+    ));
 
 ?>

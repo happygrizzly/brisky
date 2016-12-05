@@ -20,11 +20,12 @@
 
     $config_path = __DIR__.'/../app/config/';
 
-    require_once $config_path.'monolog.php';
     require_once $config_path.'twig.php';
     require_once $config_path.'dumper.php';
-    require_once $config_path.'database/database.php';
-    require_once $config_path.'utils.php';
+    require_once $config_path.'monolog.php';
+    // require_once $config_path.'database/database.php';
+    require_once $config_path.'doctrine/doctrine.php';
+    // require_once $config_path.'utils.php';
     require_once $config_path.'security.php';
     require_once $config_path.'validation/validation.php';
     require_once $config_path.'translation/translation.php';
