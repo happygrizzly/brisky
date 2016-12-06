@@ -1,6 +1,22 @@
 # https://github.com/l3pp4rd/DoctrineExtensions/blob/master/doc/annotations.md#em-setup
 # https://vaughnvernon.co/?p=879
 # http://stackoverflow.com/jobs/127876/junior-programmer-digiata-product-team-digiata?med=clc&ref=large-sidebar-blue-remote
+# http://qpleple.com/simple-environments-in-silex/
+# https://github.com/dflydev/dflydev-doctrine-orm-service-provider/issues/11 this one is very important
+# https://kacper.gunia.me/ddd-building-blocks-in-php-value-object/
+# http://richardmiller.co.uk/2014/11/06/value-objects/
+# http://verraes.net/2013/11/value-objects-and-user-interfaces/
+# http://stackoverflow.com/questions/30459720/command-line-doctrine-orm-with-silex-you-are-missing-a-cli-config-php-or-con
+# https://github.com/KnpLabs
+# http://bisaga.com/blog/programming/adding-console-support-to-silex/
+# http://stackoverflow.com/questions/32716378/generate-entites-in-the-silex-framework
+# http://stackoverflow.com/questions/15284837/silex-auth-system-with-doctrine-orm?rq=1
+# https://blog.anorgan.com/2012/09/30/doctrine2-cli-under-silex-applicatio/
+# http://blog.ploeh.dk/
+# http://blog.sznapka.pl/is-symfony2-a-mvc-framework/
+# https://dzone.com/storage/assets/3571400-dzone-2017guidetoapplicationsecurity.pdf
+# https://kacper.gunia.me/ddd-building-blocks-in-php-value-object/
+# http://silex.sensiolabs.org/pdf/master/Silex.pdf
 
 # https://www.youtube.com/watch?v=ZscvXn0y9-0
 # https://www.youtube.com/watch?v=jL9nfIiX6G0
