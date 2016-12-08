@@ -1,0 +1,1 @@
+start cmd /k set http_proxy=http://localhost:8888

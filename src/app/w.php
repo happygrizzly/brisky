@@ -14,6 +14,7 @@
     use Silex\Provider\HttpFragmentServiceProvider;
     use Silex\Provider\FormServiceProvider;
     use Symfony\Component\Form\FormFactoryInterface;
+    use Silex\Provider\SessionServiceProvider;
 
     use App\Forms\DocumentEditFormType;
     use App\Forms\TagFormType;
@@ -28,7 +29,7 @@
 
         public function __construct($env) { 
 
-            $this->rootDir = __DIR__."/../../";
+            $this->rootDir = __DIR__.'/../../';
             $this->env = $env;
 
             parent::__construct();
@@ -64,11 +65,44 @@
 
             // providers
 
-            $app->register(new MonologServiceProvider(), $app['monolog.options']);
+            $app->register(new SessionServiceProvider());
+
+            $app->register(new Silex\Provider\SecurityServiceProvider(), array(
+                'security.firewalls' => array(
+                    'login' => array(
+                        'pattern' => '^/login$',
+                    ),
+                    'secured' => array(
+                        'pattern' => '^.*$',
+                        'form' => array('login_path' => '/login', 'check_path' => '/login_check'),
+                        'logout' => array('logout_path' => '/logout', 'invalidate_session' => true),
+                        'users' => array(
+                            'admin' => array('ROLE_ADMIN', '$2y$10$3i9/lVd8UOFIJ6PAMFt8gu3/r5g0qeCJvoSlLCsvMTythye19F77a'),
+                            'user' => array('ROLE_USER', '$2y$10$3i9/lVd8UOFIJ6PAMFt8gu3/r5g0qeCJvoSlLCsvMTythye19F77a'),
+                            'viewer' => array('ROLE_VIEWER', '$2y$10$3i9/lVd8UOFIJ6PAMFt8gu3/r5g0qeCJvoSlLCsvMTythye19F77a')
+                        ),
+                    ),
+                )
+            ));
+
+            $app['security.role_hierarchy'] = array(
+                'ROLE_ADMIN' => array('ROLE_USER'),
+            );
             
-            // put it to the dev config
-            // $app->register(new Silex\Provider\VarDumperServiceProvider());
-            $app->register(new ValidatorServiceProvider());
+            $app['security.access_rules'] = array(
+                array('^/admin', 'ROLE_ADMIN'),
+                array('^.*$', ['ROLE_USER', 'ROLE_VIEWER']),
+            );
+
+            $app['security.default_encoder'] = function($app) {
+                return new PlaintextPasswordEncoder();
+            };
+        
+            $app['security.utils'] = function($app) {
+                return new AuthenticationUtils($app['request_stack']);
+            };
+
+            $app->register(new MonologServiceProvider(), $app['monolog.options']);
 
             $app->register(new TranslationServiceProvider());
             $app['translator'] = $app->extend('translator', function($translator, $app) {
@@ -104,6 +138,10 @@
 
                 return $twig;
             });
+
+            // put it to the dev config
+            // $app->register(new Silex\Provider\VarDumperServiceProvider());
+            $app->register(new ValidatorServiceProvider());
             
             $app->register(new FormServiceProvider());
             $app->extend('form.factory', function(FormFactoryInterface $factory) {
@@ -112,7 +150,7 @@
                 return $factory;
             });
 
-
+            
 
         }
 

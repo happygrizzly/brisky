@@ -57,8 +57,6 @@
     $timestampableListener->setAnnotationReader($cachedAnnotationReader);
     $app['event_manager']->addEventSubscriber($timestampableListener);
 
-    // to use different mapping type use
-
     $app->register(new DoctrineOrmServiceProvider, array(
         'orm.proxies_dir' => $app['ROOT_DIR'].'/app/data/models/proxies',
         'orm.em.options' => array(

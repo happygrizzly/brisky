@@ -2,7 +2,7 @@
 
     namespace App\Composer;
 
-    class ComposerInstallScript {
+    class ComposerInstallHook {
 
         public static function install() {
 
