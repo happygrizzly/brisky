@@ -1,5 +1,7 @@
 <?php
 
+    new Silex\Provider\ServiceControllerServiceProvider;
+
     use Silex\Provider\SessionServiceProvider;
     use Silex\Provider\SecurityServiceProvider;
     
@@ -19,6 +21,10 @@
 
     use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
     use Silex\Provider\DoctrineServiceProvider;
+
+    // controllers
+
+    $app->register(new ServiceControllerServiceProvider());
 
     // sessions
 
@@ -70,7 +76,7 @@
     $app->register(new TranslationServiceProvider());
     $app['translator'] = $app->extend('translator', function($translator, $app) {
         $translator->addLoader('yaml', new YamlFileLoader());
-        $translator->addResource('yaml', $app['ROOT_DIR'].'/resources/translations/ru.yml', 'ru');
+        $translator->addResource('yaml', $app['ROOT_DIR'].'/src/app/resources/translations/ru.yml', 'ru');
         return $translator;
     });
 
@@ -81,9 +87,9 @@
             'cache' => $app['var_dir'].'/cache/twig',
             'strict_variables' => true,
         ),
-        'twig.path' => $this->rootDir.'/resources/templates',
+        'twig.path' => $app['ROOT_DIR'].'/src/app/resources/templates',
         // 'twig.form.templates' => array('bootstrap_3_horizontal_layout.html.twig'),
-        'twig.class_path' => $this->rootDir.'/vendor/twig/lib',
+        'twig.class_path' => $app['ROOT_DIR'].'/vendor/twig/lib',
         'twig.autoescape' => true
     ));
 
@@ -173,5 +179,12 @@
             ),
         ),
     ));
+    
+    /*
+    $app->register(new WebProfilerServiceProvider(), array(
+        'profiler.cache_dir' => $app['var_dir'].'/cache/profiler',
+        'profiler.mount_prefix' => '/_profiler', // this is the default
+    ));
+    */
 
 ?>

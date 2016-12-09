@@ -11,7 +11,7 @@
     // application directories
 
     $app['ROOT_DIR'] = __DIR__.'/../../'; 
-    $app['VAR_DIR'] = $app['ROOT_DIR'].'/var';
+    $app['VAR_DIR'] = $app['ROOT_DIR'].'/src/var';
     $app['UPLOADS_DIR'] = $app['ROOT_DIR'].'/uploads';
 
     // locale
@@ -46,11 +46,19 @@
 
     // providers config
 
-    $configFile = sprintf('%s/src/app/config/env/%s.php', $app['ROOT_DIR'], $app['ENV']);
-    if(!file_exists($configFile)) {
-        throw new \RuntimeException(sprintf('The file "%s" does not exist.', $configFile));
+    $envConfig = sprintf('%s/src/app/config/env/%s.php', $app['ROOT_DIR'], $app['ENV']);
+    if(!file_exists($envConfig)) {
+        throw new \RuntimeException(sprintf('The file "%s" does not exist.', $envConfig));
     }
     
-    require $configFile;
+    require $envConfig;
+
+    // controllers
+
+    $controllersConfig = $app['ROOT_DIR'].'/src/app/config/routes/controllers.php';
+    require $controllersConfig;
+
+    $routesConfig = $app['ROOT_DIR'].'/src/app/config/routes/routes.php';
+    require $routesConfig;
 
 ?>

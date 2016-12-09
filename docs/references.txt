@@ -17,6 +17,10 @@
 # https://dzone.com/storage/assets/3571400-dzone-2017guidetoapplicationsecurity.pdf
 # https://kacper.gunia.me/ddd-building-blocks-in-php-value-object/
 # http://silex.sensiolabs.org/pdf/master/Silex.pdf
+# lyrixx/Silex-Kitchen-Edition
+# silexphp/Silex-Skeleton
+# marcojanssen/silex-rest
+# http://blog.adamcameron.me/2015/04/php-silex-controller-providers.html
 
 # https://www.youtube.com/watch?v=ZscvXn0y9-0
 # https://www.youtube.com/watch?v=jL9nfIiX6G0

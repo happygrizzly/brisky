@@ -1,6 +1,6 @@
 <?php
 
-    namespace App\Data\Models;
+    namespace App\Orm\Models;
 
     use Gedmo\Tree\Entity\MappedSuperclass\AbstractClosure;
     use Doctrine\ORM\Mapping as ORM;

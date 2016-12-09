@@ -1,13 +1,13 @@
 <?php
 
-    namespace App\Data\Models;
+    namespace App\Orm\Models;
 
     use Gedmo\Mapping\Annotation as Gedmo;
     use Doctrine\ORM\Mapping as ORM;
 
     /**
     * @Gedmo\Tree(type="closure")
-    * @Gedmo\TreeClosure(class="App\Data\Models\FolderClosure")
+    * @Gedmo\TreeClosure(class="App\Orm\Models\FolderClosure")
     * @ORM\Entity(repositoryClass="Gedmo\Tree\Entity\Repository\ClosureTreeRepository")
     */
     class Folder {
