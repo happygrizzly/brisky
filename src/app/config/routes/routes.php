@@ -2,16 +2,46 @@
 
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\ParameterBag;
+    use Symfony\Component\HttpFoundation\Response;
+    use Symfony\Component\HttpFoundation\JsonResponse;
 
-    // enable automatic json body decoding
-    
+    // controllers
+
+    use App\Routing\DocumentsApiControllerProvider;
+
+    // hooks
+
     $app->before(function(Request $request) {
+
+        // enable automatic redirect on session expiration
+
+        if(!$request->getSession()->get('username')) {
+
+            // reference: http://stackoverflow.com/a/22681873/532675
+
+            if($request->isXmlHttpRequest()) {
+                // return 401/HTTP_UNAUTHORIZED response
+                $response = new Response();
+                $response->setStatusCode(Response::HTTP_UNAUTHORIZED);
+                $response->headers->set('Reason', 'SESSION_EXPIRED');
+                $response->headers->set('WWW-Authenticate', 'MyAuthScheme realm="site_login"');
+                return $response;
+            }
+
+            return new RedirectResponse('login', 301);
+        }
+
+        // enable automatic json body decoding
+
         if(0 === strpos($request->headers->get('Content-Type'), 'application/json')) {
             // it is possible to inject a viewmodel mapper here
             $data = json_decode($request->getContent(), true);
             $request->request->replace(is_array($data) ? $data : array());
         }
+
     });
+
+    // basic routes
 
     // GET: homepage
 
@@ -28,16 +58,11 @@
         ));
     })->bind('login');
 
-    $app->get('/api/v1.0/documents', 'DocumentsApiController:getPage');
-
-    /*
-    
-    // Areas
+    // areas
 
     $app->mount('/api/v1.0', function($api) use($app) {
-        $api->mount('/documents', include 'documents.php');
+        // documents API
+        $api->mount('/documents', new DocumentsApiControllerProvider());
     });
-    
-    */
 
 ?>

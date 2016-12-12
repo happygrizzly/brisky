@@ -28,7 +28,7 @@
                         {% if error %}
                             <div class="error-message">
                                 {# refactor: use silex translations or any better approach to replace the basic message #}
-                                {{ error | replace({"Bad credentials." : "Логин / пароль указан неверно"})  }}
+                                {{ error }}
                             </div>
                         {% endif %}
 

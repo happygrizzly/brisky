@@ -28,7 +28,11 @@
 
     // sessions
 
-    $app->register(new SessionServiceProvider());
+    $app->register(new SessionServiceProvider(), array(
+        'session.storage.options' => array(
+            'cookie_lifetime' => 3600
+        ) 
+    ));
 
     // security
 
@@ -65,7 +69,7 @@
 
     $app['security.utils'] = function($app) {
         return new AuthenticationUtils($app['request_stack']);
-    };    
+    };
 
     // loggging
 
@@ -73,10 +77,15 @@
 
     // locales & translations
 
-    $app->register(new TranslationServiceProvider());
+    $app->register(new TranslationServiceProvider(), array(
+        'locale' => 'ru',
+        'locale_fallback' => 'en',
+        // 'translation.class_path' => __DIR__. '/../lib/vendor/symfony/src',
+    ));
+
     $app['translator'] = $app->extend('translator', function($translator, $app) {
         $translator->addLoader('yaml', new YamlFileLoader());
-        $translator->addResource('yaml', $app['ROOT_DIR'].'/src/app/resources/translations/ru.yml', 'ru');
+        $translator->addResource('yaml', $app['ROOT_DIR'].'/src/app/resources/translations/locale.ru.yml', 'ru');
         return $translator;
     });
 

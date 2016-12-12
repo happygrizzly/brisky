@@ -30,7 +30,7 @@
         'monolog.level' => 300, // = Logger::WARNING
     ];
 
-    // the environment settings
+    // the environment
 
     $app['ENV'] = getenv('ENV') ?: 'development';
     $app['debug'] = in_array($app['ENV'], array('development'));
@@ -44,7 +44,7 @@
 
     $app['DB_CONN_STRING'] = $db_conn_str;
 
-    // providers config
+    // environment-specific settings
 
     $envConfig = sprintf('%s/src/app/config/env/%s.php', $app['ROOT_DIR'], $app['ENV']);
     if(!file_exists($envConfig)) {
@@ -52,11 +52,6 @@
     }
     
     require $envConfig;
-
-    // controllers
-
-    $controllersConfig = $app['ROOT_DIR'].'/src/app/config/routes/controllers.php';
-    require $controllersConfig;
 
     $routesConfig = $app['ROOT_DIR'].'/src/app/config/routes/routes.php';
     require $routesConfig;
