@@ -1,6 +1,6 @@
 <?php 
 
-    namespace App\Composer;
+    namespace App\Bin\Composer;
 
     class ComposerInstallHook {
 

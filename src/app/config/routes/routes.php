@@ -3,7 +3,6 @@
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\ParameterBag;
     use Symfony\Component\HttpFoundation\Response;
-    use Symfony\Component\HttpFoundation\JsonResponse;
 
     // controllers
 
@@ -24,7 +23,7 @@
                 $response = new Response();
                 $response->setStatusCode(Response::HTTP_UNAUTHORIZED);
                 $response->headers->set('Reason', 'SESSION_EXPIRED');
-                $response->headers->set('WWW-Authenticate', 'MyAuthScheme realm="site_login"');
+                $response->headers->set('WWW-Authenticate', 'MyAuthScheme realm="app:login"');
                 return $response;
             }
 
@@ -52,10 +51,14 @@
     // GET: login
 
     $app->get('/login', function(Request $request) use($app) {
-        return $app['twig']->render('login.twig', array(
+
+        $login_data = array(
             'error' => $app['security.last_error']($request),
             'last_username' => $app['session']->get('_security.last_username'),
-        ));
+        );
+
+        return $app['twig']->render('login.twig', $login_data);
+        
     })->bind('login');
 
     // areas

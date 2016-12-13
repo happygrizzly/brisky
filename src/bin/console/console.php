@@ -20,19 +20,20 @@
     require __DIR__."/../config/$env.php";
     
     // configure the console application
-    $console = new ConsoleApplication('Brisky Console Tools', '1.0');
+    $cli = new ConsoleApplication('Brisky Console Tools', '1.0');
+    $cli->setCatchExceptions(true);
 
-    // register custom commands
-
-    // add doctrine commands 
-    $helperSet = new HelperSet(array(
+    // add doctrine commands     
+    $cli->setHelperSet(new HelperSet(array(
         'db' => new ConnectionHelper($app['orm.em']->getConnection()),
         'em' => new EntityManagerHelper($app['orm.em'])
-    ));
-    
-    $console->setHelperSet($helperSet);
-    ConsoleRunner::addCommands($console);
+    )));
 
+    ConsoleRunner::addCommands($cli);
+
+    // register custom commands..
+
+    // run the application
     $console->run();
 
 ?>

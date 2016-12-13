@@ -21,6 +21,11 @@
 # silexphp/Silex-Skeleton
 # marcojanssen/silex-rest
 # http://blog.adamcameron.me/2015/04/php-silex-controller-providers.html
+# http://stackoverflow.com/questions/22681760/redirect-to-login-page-when-session-expires-silex
+# http://stackoverflow.com/questions/1653493/what-http-status-code-is-supposed-to-be-used-to-tell-the-client-the-session-has
+# http://stackoverflow.com/questions/3561381/custom-http-headers-naming-conventions
+# http://stackoverflow.com/questions/29952025/silex-session-set-a-lifetime
+# http://stackoverflow.com/questions/9734549/sessions-do-not-work-in-silex-app?rq=1
 
 # https://www.youtube.com/watch?v=ZscvXn0y9-0
 # https://www.youtube.com/watch?v=jL9nfIiX6G0
