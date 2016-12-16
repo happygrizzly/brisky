@@ -3,12 +3,37 @@
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\ParameterBag;
     use Symfony\Component\HttpFoundation\Response;
+    use Symfony\Component\HttpFoundation\RedirectResponse;
 
     // controllers
 
     use App\Routing\DocumentsApiControllerProvider;
 
     // hooks
+
+    /*
+    
+        if($request->isXmlHttpRequest()) {
+
+            $isAuthFully = $app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY');
+
+            if(!$isAuthFully and $request->get('_route') !== 'login') {
+
+                // reference: http://stackoverflow.com/a/22681873/532675
+                
+                // return 401/HTTP_UNAUTHORIZED response
+                $response = new Response();
+                $response->setStatusCode(Response::HTTP_UNAUTHORIZED);
+                $response->headers->set('Reason', 'SESSION_EXPIRED');
+                $response->headers->set('WWW-Authenticate', 'MyAuthScheme realm="app:login"');
+                return $response;
+                
+                // return new RedirectResponse('login', 301);
+            
+            }
+        }
+    
+    */
 
     $app->before(function(Request $request) {
 
@@ -58,7 +83,7 @@
         );
 
         return $app['twig']->render('login.twig', $login_data);
-        
+
     })->bind('login');
 
     // areas
