@@ -47,25 +47,26 @@
                 'logout' => array('logout_path' => '/logout', 'invalidate_session' => true),
                 'users' => array(
                     'admin' => array('ROLE_ADMIN', '$2y$10$3i9/lVd8UOFIJ6PAMFt8gu3/r5g0qeCJvoSlLCsvMTythye19F77a'),
-                    'user' => array('ROLE_USER', '$2y$10$3i9/lVd8UOFIJ6PAMFt8gu3/r5g0qeCJvoSlLCsvMTythye19F77a'),
-                    'viewer' => array('ROLE_VIEWER', '$2y$10$3i9/lVd8UOFIJ6PAMFt8gu3/r5g0qeCJvoSlLCsvMTythye19F77a')
+                    'user' => array('ROLE_USER', '$2y$10$3i9/lVd8UOFIJ6PAMFt8gu3/r5g0qeCJvoSlLCsvMTythye19F77a')
                 ),
             ),
         )
     ));
 
     $app['security.role_hierarchy'] = array(
-        'ROLE_ADMIN' => array('ROLE_USER'),
+        'ROLE_ADMIN' => ['ROLE_USER', 'ROLE_ALLOWED_TO_SWITCH'],
     );
     
     $app['security.access_rules'] = array(
         array('^/admin', 'ROLE_ADMIN'),
-        array('^.*$', ['ROLE_USER', 'ROLE_VIEWER']),
+        array('^.*$', ['ROLE_USER']),
     );
 
+    /*
     $app['security.default_encoder'] = function($app) {
         return new PlaintextPasswordEncoder();
     };
+    */
 
     $app['security.utils'] = function($app) {
         return new AuthenticationUtils($app['request_stack']);
@@ -132,10 +133,7 @@
     });
 
     $app->register(new DoctrineServiceProvider, array(
-        'db.options' => array(
-            // set in the vhost mysql://localhost:xxxx/foo?charset=UTF-8
-            'url' => $app['DB_CONN_STRING']
-        ),
+        'db.options' => array('url' => $app['DB_CONN_STRING']),
     ));
 
     // globally used cache driver, in production use APC or memcached
@@ -161,6 +159,7 @@
     // tree
     $treeListener = new Gedmo\Tree\TreeListener();
     $treeListener->setAnnotationReader($cachedAnnotationReader);
+    
     $app['event_manager']->addEventSubscriber($treeListener);
 
     /*
@@ -174,6 +173,7 @@
     // timestampable
     $timestampableListener = new Gedmo\Timestampable\TimestampableListener();
     $timestampableListener->setAnnotationReader($cachedAnnotationReader);
+
     $app['event_manager']->addEventSubscriber($timestampableListener);
 
     $app->register(new DoctrineOrmServiceProvider, array(

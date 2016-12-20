@@ -11,48 +11,28 @@
 
     // hooks
 
-    /*
-    
-        if($request->isXmlHttpRequest()) {
+    $app->before(function(Request $request) {
 
+        // enable automatic redirect on session expiration fo XHR requests
+        // reference: http://stackoverflow.com/questions/41163697/responding-with-http-unauthorized-redirect-on-session-expiration
+
+        if($request->headers->has('XHR-Request')) {
+            
             $isAuthFully = $app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY');
 
             if(!$isAuthFully and $request->get('_route') !== 'login') {
 
-                // reference: http://stackoverflow.com/a/22681873/532675
-                
                 // return 401/HTTP_UNAUTHORIZED response
+                // reference: http://stackoverflow.com/a/22681873/532675
+
                 $response = new Response();
                 $response->setStatusCode(Response::HTTP_UNAUTHORIZED);
-                $response->headers->set('Reason', 'SESSION_EXPIRED');
-                $response->headers->set('WWW-Authenticate', 'MyAuthScheme realm="app:login"');
+                $response->headers->set('Login-Redirect', '');
+                $response->headers->set('WWW-Authenticate', 'AppAuthScheme realm="application:login"');
+
                 return $response;
-                
-                // return new RedirectResponse('login', 301);
             
             }
-        }
-    
-    */
-
-    $app->before(function(Request $request) {
-
-        // enable automatic redirect on session expiration
-
-        if(!$request->getSession()->get('username')) {
-
-            // reference: http://stackoverflow.com/a/22681873/532675
-
-            if($request->isXmlHttpRequest()) {
-                // return 401/HTTP_UNAUTHORIZED response
-                $response = new Response();
-                $response->setStatusCode(Response::HTTP_UNAUTHORIZED);
-                $response->headers->set('Reason', 'SESSION_EXPIRED');
-                $response->headers->set('WWW-Authenticate', 'MyAuthScheme realm="app:login"');
-                return $response;
-            }
-
-            return new RedirectResponse('login', 301);
         }
 
         // enable automatic json body decoding
@@ -89,7 +69,6 @@
     // areas
 
     $app->mount('/api/v1.0', function($api) use($app) {
-        // documents API
         $api->mount('/documents', new DocumentsApiControllerProvider());
     });
 

@@ -30,3 +30,12 @@
 # https://www.youtube.com/watch?v=ZscvXn0y9-0
 # https://www.youtube.com/watch?v=jL9nfIiX6G0
 # https://www.youtube.com/watch?v=EuC5FQXwN5A
+
+# https://github.com/davedevelopment/silex-acl-demo/blob/master/app/bootstrap.php
+# http://stackoverflow.com/questions/41163697/responding-with-http-unauthorized-redirect-on-session-expiration
+# https://www.reddit.com/r/symfony/comments/2vah2p/acl_permissions_cascading/
+# https://www.reddit.com/r/symfony/comments/2t8evg/differences_between_voters_and_acl_and_when_each/
+# http://symfony.com/doc/current/security/voters.html
+# http://stackoverflow.com/questions/15273206/symfony2-hierarchical-acl
+# http://myclabs.github.io/ACL/
+# https://groups.google.com/forum/#!topic/symfony-users/q-y9wHoh7R8
