@@ -39,3 +39,6 @@
 # http://stackoverflow.com/questions/15273206/symfony2-hierarchical-acl
 # http://myclabs.github.io/ACL/
 # https://groups.google.com/forum/#!topic/symfony-users/q-y9wHoh7R8
+
+# http://stackoverflow.com/questions/9652755/best-way-to-manage-user-group-object-permissions-with-symfony2?rq=1
+# http://stackoverflow.com/questions/31357869/using-entity-for-securityuserprovider-on-silex
